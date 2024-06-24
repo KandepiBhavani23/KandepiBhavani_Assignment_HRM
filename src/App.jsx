@@ -20,6 +20,10 @@ const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       {
+        path: "/",
+        element: <EmployeeLogin />,
+      },
+      {
         path: "/employee-login",
         element: <EmployeeLogin />,
       },
