@@ -9,6 +9,9 @@ import {
   ProtectedRoute,
   AdminDashboard,
 } from "./index";
+import CreateEmployee from "./components/AdminDashboard/CreateEmployee";
+import PersonalDetails from "./components/AdminDashboard/PersonalInfo/PersonalDetails";
+import PersonalInformation from "./components/AdminDashboard/PersonalInformation";
 
 const AppLayout = () => {
   return (
@@ -48,6 +51,34 @@ const router = createBrowserRouter([
             <AdminDashboard />
           </ProtectedRoute>
         ),
+        children: [
+          {
+            path: "/admin",
+            element: <CreateEmployee />,
+          },
+          {
+            path: "/admin/create-employee",
+            element: <CreateEmployee />,
+          },
+          {
+            path: "/admin/personal-info",
+            element: <PersonalInformation />,
+            children: [
+              {
+                path: "/admin/personal-info/personal-details",
+                element: <PersonalDetails />,
+              },
+              {
+                path: "/admin/personal-info/contact-details",
+                element: <></>,
+              },
+              {
+                path: "/admin/personal-info/job-details",
+                element: <></>,
+              },
+            ],
+          },
+        ],
       },
     ],
   },
