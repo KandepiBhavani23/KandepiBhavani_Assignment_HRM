@@ -1,5 +1,8 @@
 import { FormProvider, useForm } from "react-hook-form";
 import FormInput from "./FormInput";
+import { useState } from "react";
+import { addDoc, collection, setDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const CreateEmployee = () => {
   const {
@@ -8,13 +11,31 @@ const CreateEmployee = () => {
     formState: { errors },
   } = useForm();
   const methods = useForm();
-  const onSubmit = (data) => console.log("Form Data:", data);
+  const [submitted, setSubmitted] = useState(false);
+  const onSubmit = async (data) => {
+    try {
+      const docRef = await addDoc(collection(db, "createemployee"), data);
+      await setDoc(docRef, data);
+
+      setSubmitted(true);
+      methods.reset();
+
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 5000);
+      console.log("Form Data saved successfully:", data);
+    } catch (error) {
+      console.error("Error saving form data:", error);
+    }
+  };
 
   return (
-    <div className="flex flex-col h-full p-6 bg-white rounded-l-none rounded-r-lg shadow-lg">
+    <div className="flex flex-col h-full p-6 bg-white shadow-lg rounded-2xl">
       <h2 className="mb-6 text-2xl font-bold text-slate-800 text-start">
         Add Employee
       </h2>
+      <hr className="mb-5" />
+
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit(onSubmit)}
@@ -89,14 +110,12 @@ const CreateEmployee = () => {
               </div>
 
               <div className="flex items-center mb-4">
-                <input
-                  type="checkbox"
-                  id="createLogin"
-                  className="mr-2"
-                  {...register("createLogin")}
-                />
-                <label htmlFor="createLogin" className="text-sm text-gray-700">
-                  Create Login Details
+                <label class="inline-flex items-center cursor-pointer">
+                  <input type="checkbox" value="" class="sr-only peer" />
+                  <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none  dark:peer-focus:ring-blue-800 rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
+                  <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    Create Login Details
+                  </span>
                 </label>
               </div>
 
@@ -116,6 +135,11 @@ const CreateEmployee = () => {
           </div>
         </form>
       </FormProvider>
+      {submitted && (
+        <div className="absolute bottom-0 right-0 px-4 py-2 m-4 text-green-900 bg-green-100 rounded">
+          New Employee Created
+        </div>
+      )}
     </div>
   );
 };

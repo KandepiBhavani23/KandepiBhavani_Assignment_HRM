@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import images from "../../../utils/images";
 
 const PersonalSideBar = () => {
   const links = [
@@ -25,10 +26,19 @@ const PersonalSideBar = () => {
   const location = useLocation();
 
   return (
-    <div className="w-64 min-h-screen p-6 bg-white border-r-2 shadow-md">
+    <div className="w-64 min-h-screen p-6 bg-white border-r-2 shadow-md rounded-tl-2xl rounded-bl-2xl">
       <div className="flex flex-col items-center">
-        <div className="w-24 h-24 mb-4 bg-gray-200 rounded-full"></div>
-        <h2 className="mb-6 text-xl font-bold">Kandepi Bhavani</h2>
+        <h2 className="mb-6 text-xl font-bold text-slate-800">
+          Kandepi Bhavani
+        </h2>
+        <div className="w-32 h-32 mb-4 rounded-full">
+          <img
+            src={images?.employeeProfile}
+            alt="employee-profile"
+            className="object-cover"
+          />
+        </div>
+
         <nav className="flex flex-col w-full py-1">
           {links.map((link) => (
             <Link

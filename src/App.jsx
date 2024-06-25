@@ -67,6 +67,10 @@ const router = createBrowserRouter([
             element: <PersonalInformation />,
             children: [
               {
+                path: "",
+                element: <PersonalDetails />,
+              },
+              {
                 path: "/admin/personal-info/personal-details",
                 element: <PersonalDetails />,
               },

@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import FormInput from "../FormInput";
 import { FormProvider, useForm } from "react-hook-form";
+import { addDoc, collection, setDoc } from "firebase/firestore";
+import { db } from "../../../firebase.js";
 
 const JobDetails = () => {
   const methods = useForm();
-  const onSubmit = (data) => console.log("Form Data:", data);
+  const [submitted, setSubmitted] = useState(false);
+  const onSubmit = async (data) => {
+    try {
+      const docRef = await addDoc(collection(db, "jobDetails"), data);
+      await setDoc(docRef, data);
+
+      setSubmitted(true);
+      methods.reset();
+
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 5000);
+      console.log("Form Data saved successfully:", data);
+    } catch (error) {
+      console.error("Error saving form data:", error);
+    }
+  };
 
   return (
-    <div className="relative flex flex-col w-full h-full p-6 bg-white">
+    <div className="relative flex flex-col w-full h-full p-6 bg-white rounded-tr-2xl rounded-br-2xl">
       <h2 className="mb-6 text-2xl font-bold text-slate-800">Job Details</h2>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
@@ -119,6 +137,11 @@ const JobDetails = () => {
           </div>
         </form>
       </FormProvider>
+      {submitted && (
+        <div className="absolute bottom-0 right-0 px-4 py-2 m-4 text-green-900 bg-green-100 rounded">
+          Job details submitted!
+        </div>
+      )}
     </div>
   );
 };

@@ -5,7 +5,7 @@ import Header from "../Header/Header";
 const AdminLayout = ({ children }) => {
   const [showSideBar, setShowSideBar] = useState(true);
   return (
-    <div className="flex bg-slate-200">
+    <div className="flex overflow-x-hidden bg-slate-200">
       <SideBar showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
       <div className={`${showSideBar ? "lg:ml-0" : "lg:ml-60"}`}>
         <Header showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
