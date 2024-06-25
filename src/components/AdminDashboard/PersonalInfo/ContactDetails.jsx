@@ -30,11 +30,11 @@ const ContactDetails = () => {
       </h2>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
-          <div className="flex flex-col w-full space-y-3">
+          <div className="flex flex-col w-full pb-6 space-y-3 md:pb-0">
             <div className="flex flex-col gap-y-4">
               <h3 className="text-lg font-bold text-slate-800">Address</h3>
               <hr />
-              <div className="flex gap-x-5">
+              <div className="flex flex-col md:flex-row gap-x-5">
                 <FormInput
                   label="Street 1"
                   name="street1"
@@ -57,7 +57,7 @@ const ContactDetails = () => {
                   required="City Required"
                 />
               </div>
-              <div className="flex gap-x-5">
+              <div className="flex flex-col md:flex-row gap-x-5">
                 <FormInput
                   label="State/Province"
                   name="state"
@@ -93,7 +93,7 @@ const ContactDetails = () => {
             <div className="flex flex-col gap-y-4">
               <h3 className="text-lg font-bold text-slate-800">Telephone</h3>
               <hr />
-              <div className="flex gap-x-5">
+              <div className="flex flex-col md:flex-row gap-x-5">
                 <FormInput
                   label="Home"
                   name="home"
@@ -121,7 +121,7 @@ const ContactDetails = () => {
             <div className="flex flex-col gap-y-4">
               <h3 className="text-lg font-bold text-slate-800">Telephone</h3>
               <hr />
-              <div className="flex gap-x-5">
+              <div className="flex flex-col md:flex-row gap-x-5">
                 <FormInput
                   label="Work Email"
                   name="workEmail"

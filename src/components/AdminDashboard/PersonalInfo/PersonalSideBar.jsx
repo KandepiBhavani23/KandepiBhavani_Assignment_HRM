@@ -26,7 +26,7 @@ const PersonalSideBar = () => {
   const location = useLocation();
 
   return (
-    <div className="w-64 min-h-screen p-6 bg-white border-r-2 shadow-md rounded-tl-2xl rounded-bl-2xl">
+    <div className="min-h-screen p-6 bg-white border-r-2 shadow-md w-36 md:w-52 lg:w-64 rounded-tl-2xl rounded-bl-2xl">
       <div className="flex flex-col items-center">
         <h2 className="mb-6 text-xl font-bold text-slate-800">
           Kandepi Bhavani
@@ -35,7 +35,7 @@ const PersonalSideBar = () => {
           <img
             src={images?.employeeProfile}
             alt="employee-profile"
-            className="object-cover"
+            className="object-contain"
           />
         </div>
 

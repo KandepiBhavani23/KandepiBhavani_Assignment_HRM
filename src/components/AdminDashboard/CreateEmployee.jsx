@@ -40,8 +40,8 @@ const CreateEmployee = () => {
         <form
           onSubmit={methods.handleSubmit(onSubmit)}
           className="flex flex-wrap w-full gap-x-10">
-          <div className="flex w-full gap-4 md:gap-x-10">
-            <div className="">
+          <div className="flex flex-col w-full gap-4 lg:flex-row md:gap-x-10">
+            <div className="flex flex-col items-center justify-center lg:items-start lg:justify-start">
               <label
                 htmlFor="employeeImage"
                 className="flex items-center justify-center w-40 h-40 text-center border-2 border-gray-300 border-dashed rounded-full cursor-pointer">
@@ -110,10 +110,10 @@ const CreateEmployee = () => {
               </div>
 
               <div className="flex items-center mb-4">
-                <label class="inline-flex items-center cursor-pointer">
-                  <input type="checkbox" value="" class="sr-only peer" />
-                  <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none  dark:peer-focus:ring-blue-800 rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
-                  <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label className="inline-flex items-center cursor-pointer">
+                  <input type="checkbox" value="" className="sr-only peer" />
+                  <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none  dark:peer-focus:ring-blue-800 rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
+                  <span className="text-sm font-medium text-gray-900 ms-3 dark:text-gray-300">
                     Create Login Details
                   </span>
                 </label>

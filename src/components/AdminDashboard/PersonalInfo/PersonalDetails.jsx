@@ -32,8 +32,8 @@ const PersonalDetails = () => {
       </h2>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
-          <div className="flex flex-col w-full space-y-4">
-            <div className="flex gap-x-5">
+          <div className="flex flex-col w-full pb-6 space-y-4 md:pb-0">
+            <div className="flex flex-col md:flex-row gap-x-5">
               <FormInput
                 label="Employee Full Name*"
                 name="firstName"
@@ -54,7 +54,7 @@ const PersonalDetails = () => {
             </div>
             <hr />
             <div className="flex flex-col gap-y-4">
-              <div className="flex gap-x-5">
+              <div className="flex flex-col md:flex-row gap-x-5">
                 <FormInput
                   label="Employee Id*"
                   name="employeeId"
@@ -67,7 +67,7 @@ const PersonalDetails = () => {
                   placeholder="Other Id"
                 />
               </div>
-              <div className="flex gap-x-5">
+              <div className="flex flex-col md:flex-row gap-x-5">
                 <FormInput
                   label="Driver's License Number"
                   name="licenseNumber"
@@ -85,7 +85,7 @@ const PersonalDetails = () => {
             <hr />
 
             <div className="flex flex-col gap-y-4">
-              <div className="flex gap-x-5">
+              <div className="flex flex-col md:flex-row gap-x-5">
                 <FormInput
                   label="Nationality"
                   name="nationality"
@@ -141,7 +141,7 @@ const PersonalDetails = () => {
             </div>
           </div>
 
-          <div className="absolute flex justify-end w-full bottom-2 right-3">
+          <div className="absolute flex justify-end w-full bottom-2 right-3 ">
             <button
               type="button"
               className="px-4 py-2 mr-2 text-gray-700 bg-gray-300 rounded hover:bg-gray-400">

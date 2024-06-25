@@ -8,7 +8,10 @@ const AdminHeader = ({ showSideBar, setShowSideBar }) => {
       className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 h-16 bg-orange-500 shadow-md transition-all duration-300 ${
         showSideBar ? "lg:ml-60" : "lg:ml-0 left-0"
       }`}>
-      <BiMenu className="text-white h-7 w-7" />
+      <button onClick={() => setShowSideBar(!showSideBar)}>
+        <BiMenu className="text-white h-7 w-7" />
+      </button>
+
       <button
         onClick={() => navigate("/")}
         className="px-3 py-1 text-base font-bold bg-white rounded-2xl text-end">

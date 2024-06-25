@@ -63,9 +63,9 @@ const SideBar = ({ showSideBar, setShowSideBar }) => {
   const location = useLocation();
   return (
     <aside
-      className={`fixed top-0 left-0 min-h-screen w-60 bg-slate-50 shadow-2xl shadow-orange-200 transition-transform duration-300 z-50 ${
-        showSideBar ? "transform-none" : "-translate-x-full"
-      } lg:translate-x-0 lg:mt-0 rounded-tr-2xl rounded-br-2xl`}>
+      className={`min-h-screen space-y-6 bottom-0 bg-slate-50 shadow-md text-[#192A56] w-48 md:w-52 lg:w-60 fixed top-0 left-0 mt-16 lg:mt-0 ${
+        showSideBar ? "sm:block z-50 " : "hidden lg:bg-none"
+      }`}>
       <Link to="/admin" className="mb-6 ">
         <img src={images?.websiteLogo} alt="logo" className="p-3" />
       </Link>

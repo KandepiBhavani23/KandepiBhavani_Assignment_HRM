@@ -29,8 +29,8 @@ const JobDetails = () => {
       <h2 className="mb-6 text-2xl font-bold text-slate-800">Job Details</h2>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
-          <div className="flex flex-col gap-y-4">
-            <div className="flex gap-x-5">
+          <div className="flex flex-col pb-6 md:pb-0 gap-y-4">
+            <div className="flex flex-col md:flex-row gap-x-5">
               <FormInput
                 label="Joined Date"
                 name="joinedDate"
@@ -58,7 +58,7 @@ const JobDetails = () => {
                 placeholder="Not Defined"
               />
             </div>
-            <div className="flex gap-x-5">
+            <div className="flex flex-col md:flex-row gap-x-5">
               <FormInput
                 label="Job Category"
                 name="jobCategory"
@@ -104,8 +104,8 @@ const JobDetails = () => {
             </div>
           </div>
 
-          <div className="flex flex-col mt-5">
-            <div className="flex w-1/3 gap-x-5">
+          <div className="flex flex-col lg:mt-5">
+            <div className="flex flex-col md:w-1/3 md:flex-row gap-x-5">
               <FormInput
                 label="Employment Status"
                 name="employmentStatus"
