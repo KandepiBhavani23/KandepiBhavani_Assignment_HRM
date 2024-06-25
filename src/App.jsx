@@ -1,9 +1,14 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Header from "./components/Header";
-import AdminLogin from "./components/Login/AdminLogin";
-import EmployeeLogin from "./components/Login/EmployeeLogin";
-import EmployeeDetails from "./components/Login/EmployeeDetails";
+import {
+  Header,
+  AdminLogin,
+  EmployeeLogin,
+  EmployeeDetails,
+  NoRouteFound,
+  ProtectedRoute,
+  AdminDashboard,
+} from "./index";
 
 const AppLayout = () => {
   return (
@@ -18,6 +23,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    errorElement: <NoRouteFound />,
     children: [
       {
         path: "/",
@@ -34,6 +40,14 @@ const router = createBrowserRouter([
       {
         path: "/employee-details",
         element: <EmployeeDetails />,
+      },
+      {
+        path: "/admin",
+        element: (
+          <ProtectedRoute>
+            <AdminDashboard />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
