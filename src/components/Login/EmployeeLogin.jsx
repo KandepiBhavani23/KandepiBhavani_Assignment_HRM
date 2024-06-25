@@ -36,12 +36,12 @@ const EmployeeLogin = () => {
   };
 
   return (
-    <div className="flex justify-center items-end w-screen min-h-96 relative">
+    <div className="relative flex items-end justify-center w-screen min-h-96">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col max-w-xs sm:max-w-sm md:max-w-base lg:max-w-lg rounded-md bg-slate-100 p-10 w-full">
+        className="flex flex-col w-full max-w-xs p-10 rounded-md sm:max-w-sm md:max-w-base lg:max-w-lg bg-slate-100">
         <div className="flex flex-col gap-2">
-          <label htmlFor="email" className="font-semibold text-lg">
+          <label htmlFor="email" className="text-lg font-semibold">
             Email:
           </label>
           <input
@@ -52,7 +52,7 @@ const EmployeeLogin = () => {
             {...register("email", { required: "Email is required" })}
           />
           {errors.email && (
-            <p className="text-red-500 absolute translate-y-24 translate-x-2 font-semibold min-h-5">
+            <p className="absolute font-semibold text-red-500 translate-x-2 translate-y-24 min-h-5">
               {errors.email.message}
             </p>
           )}
