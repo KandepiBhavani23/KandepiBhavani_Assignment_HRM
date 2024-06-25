@@ -5,3 +5,8 @@ export { default as EmployeeDetails } from "./components/Login/EmployeeDetails";
 export { default as NoRouteFound } from "./components/NoRouteFound.jsx";
 export { default as ProtectedRoute } from "./components/AdminDashboard/ProtectedRoute.jsx";
 export { default as AdminDashboard } from "./components/AdminDashboard/AdminDashboard.jsx";
+export { default as CreateEmployee } from "./components/AdminDashboard/CreateEmployee";
+export { default as PersonalDetails } from "./components/AdminDashboard/PersonalInfo/PersonalDetails";
+export { default as PersonalInformation } from "./components/AdminDashboard/PersonalInformation";
+export { default as ContactDetails } from "./components/AdminDashboard/PersonalInfo/ContactDetails";
+export { default as JobDetails } from "./components/AdminDashboard/PersonalInfo/JobDetails";

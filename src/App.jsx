@@ -8,10 +8,12 @@ import {
   NoRouteFound,
   ProtectedRoute,
   AdminDashboard,
+  CreateEmployee,
+  PersonalDetails,
+  PersonalInformation,
+  ContactDetails,
+  JobDetails,
 } from "./index";
-import CreateEmployee from "./components/AdminDashboard/CreateEmployee";
-import PersonalDetails from "./components/AdminDashboard/PersonalInfo/PersonalDetails";
-import PersonalInformation from "./components/AdminDashboard/PersonalInformation";
 
 const AppLayout = () => {
   return (
@@ -70,11 +72,11 @@ const router = createBrowserRouter([
               },
               {
                 path: "/admin/personal-info/contact-details",
-                element: <></>,
+                element: <ContactDetails />,
               },
               {
                 path: "/admin/personal-info/job-details",
-                element: <></>,
+                element: <JobDetails />,
               },
             ],
           },

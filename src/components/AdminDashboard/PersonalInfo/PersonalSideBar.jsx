@@ -1,3 +1,5 @@
+import { Link, useLocation } from "react-router-dom";
+
 const PersonalSideBar = () => {
   const links = [
     {
@@ -5,8 +7,12 @@ const PersonalSideBar = () => {
       name: "Personal Details",
       href: "/admin/personal-info/personal-details",
     },
-    { id: 102, name: "Contact Details", href: "#contact-details" },
-    { id: 103, name: "Job", href: "#job" },
+    {
+      id: 102,
+      name: "Contact Details",
+      href: "/admin/personal-info/contact-details",
+    },
+    { id: 103, name: "Job", href: "/admin/personal-info/job-details" },
     { id: 104, name: "Emergency Contacts", href: "#emergency-contacts" },
     { id: 105, name: "Dependents", href: "#dependents" },
     { id: 106, name: "Immigration", href: "#immigration" },
@@ -16,21 +22,23 @@ const PersonalSideBar = () => {
     { id: 110, name: "Membership", href: "#membership" },
   ];
 
+  const location = useLocation();
+
   return (
     <div className="w-64 min-h-screen p-6 bg-white border-r-2 shadow-md">
       <div className="flex flex-col items-center">
         <div className="w-24 h-24 mb-4 bg-gray-200 rounded-full"></div>
-        <h2 className="mb-6 text-xl font-bold">Chahal Vadalmiya</h2>
-        <nav className="flex flex-col w-full space-y-2">
+        <h2 className="mb-6 text-xl font-bold">Kandepi Bhavani</h2>
+        <nav className="flex flex-col w-full py-1">
           {links.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.href}
               className={`text-gray-600 hover:text-gray-900 p-2 rounded-md ${
-                link.name === "Contact Details" ? "bg-gray-100" : ""
+                link.href === location.pathname ? "bg-gray-100" : ""
               }`}>
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>
