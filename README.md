@@ -1,6 +1,6 @@
 **Run The Project : npm run dev**
 
-**Admin Login **
+**Admin Login**
 username : admin
 password : admin
 
